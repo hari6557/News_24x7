@@ -19,6 +19,17 @@ const NewsPage = async ({params: {category}}: Props) => {
 
 export default NewsPage
 
+export async function getStaticProps({ params }: Props) {
+    const { category } = params;
+    const news = await FetchNews(category);
+    return {
+        props: {
+            category,
+            news,
+        },
+    };
+}
+
 export async function getStaticPaths() {
     const paths = categories.map((category) => ({ params: { category } }));
     return {
