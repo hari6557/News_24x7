@@ -19,7 +19,11 @@ const NewsPage = async ({params: {category}}: Props) => {
 
 export default NewsPage
 
-export const generateStatisParams = async () =>{
-    return categories.map((category)=>({category: category}))
+export async function getStaticPaths() {
+    const paths = categories.map((category) => ({ params: { category } }));
+    return {
+        paths,
+        fallback: false,
+    };
 }
 
