@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 type Props = {
   searchParams: Article;
 };
+
+export const dynamic='force-dynamic';
+
 const ArticlePage = ({ searchParams }: Props) => {
   if (
     (searchParams && Object.entries(searchParams).length === 0) ||
@@ -14,8 +17,8 @@ const ArticlePage = ({ searchParams }: Props) => {
 
   const article: Article = searchParams;
 
-  console.log("ARTICLE", article);
-  console.log("SEARCHPARAMS", searchParams);
+  // console.log("ARTICLE", article);
+  // console.log("SEARCHPARAMS", searchParams);
 
   return (
     <article className="mt-10">
